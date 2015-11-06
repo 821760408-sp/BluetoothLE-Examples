@@ -36,8 +36,14 @@ SensorTag.discover(function(tag) {
 
 	function connectAndSetUpMe() {			// attempt to connect to the tag
      console.log('connectAndSetUp');
-     tag.connectAndSetUp(enableAccelMe);		// when you connect and device is setup, call enableAccelMe
+		 console.log('id: ' + tag.id + ' type: ' + tag.type);
+		 tag.connectAndSetUp(setAccelPeriod);		// when you connect and device is setup, call enableAccelMe
    }
+
+	 function setAccelPeriod() {	// set period/SR of accelerometer
+		 console.log('setAccelerometerPeriod');
+		 tag.setAccelerometerPeriod(100, enableAccelMe);
+	 }
 
    function enableAccelMe() {		// attempt to enable the accelerometer
      console.log('enableAccelerometer');
